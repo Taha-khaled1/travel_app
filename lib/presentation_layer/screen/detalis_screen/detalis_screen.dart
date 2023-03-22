@@ -4,6 +4,7 @@ import 'package:travel_app_flutter/presentation_layer/Infowidget/ui_components/i
 import 'package:travel_app_flutter/presentation_layer/components/custombutten.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/color_manager.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/font_manager.dart';
+import 'package:travel_app_flutter/presentation_layer/screen/contact_book_screen/contact_book_screen.dart';
 import 'package:travel_app_flutter/presentation_layer/screen/detalis_screen/controller/PropertDetalisController.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/styles_manager.dart';
 import 'package:travel_app_flutter/presentation_layer/screen/detalis_screen/widget/Colection_Text.dart';
@@ -132,18 +133,15 @@ class PropertyDetalisScreen extends StatelessWidget {
                           const SizedBox(
                             height: 20,
                           ),
-                          const LocationHomeWidget(),
                           CustomButton(
                             width: deviceInfo.localWidth * 0.9,
                             haigh: 60,
                             color: ColorManager.button,
                             text: 'اتصل الآن',
                             press: () {
-                              bookingInfo(
-                                context,
-                                false,
-                                controller,
-                                deviceInfo.localHeight * 0.8,
+                              Get.to(
+                                () => const ContactBookScreen(),
+                                arguments: {'tripId': '1'},
                               );
                             },
                           ),

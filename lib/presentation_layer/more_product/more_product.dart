@@ -33,23 +33,23 @@ class MoreProductScreen extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Expanded(
-                child: GridView.builder(
-                  // controller: controller.controller,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    //  mainAxisSpacing: 10,
-                    childAspectRatio: getChildAspectRatio(deviceInfo),
-                  ),
-                  itemCount: 10,
-                  itemBuilder: (BuildContext context, int index) {
-                    return const CardProperty(
-                      x: 'assets/images/lail.jpg',
-                    );
-                  },
-                ),
-              ),
+              // Expanded(
+              //   child: GridView.builder(
+              //     // controller: controller.controller,
+              //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              //       crossAxisCount: 2,
+              //       crossAxisSpacing: 10,
+              //       //  mainAxisSpacing: 10,
+              //       childAspectRatio: getChildAspectRatio(deviceInfo),
+              //     ),
+              //     itemCount: 10,
+              //     itemBuilder: (BuildContext context, int index) {
+              //       return const CardProperty(
+              //         x: 'assets/images/lail.jpg',
+              //       );
+              //     },
+              //   ),
+              // ),
               const SizedBox(
                 height: 10,
               ),

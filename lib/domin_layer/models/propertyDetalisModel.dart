@@ -1,254 +1,169 @@
-class PropertyDetalisModel {
+class TripDatelisModel {
   int? statusCode;
   String? message;
-  Property? property;
+  Trip? trip;
 
-  PropertyDetalisModel({this.statusCode, this.message, this.property});
+  TripDatelisModel({this.statusCode, this.message, this.trip});
 
-  PropertyDetalisModel.fromJson(Map<String, dynamic> json) {
+  TripDatelisModel.fromJson(Map<String, dynamic> json) {
     statusCode = json['status_code'];
     message = json['message'];
-    property =
-        json['property'] != null ? Property.fromJson(json['property']) : null;
+    trip = json['trip'] != null ? Trip.fromJson(json['trip']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['status_code'] = statusCode;
     data['message'] = message;
-    if (property != null) {
-      data['property'] = property!.toJson();
+    if (trip != null) {
+      data['trip'] = trip!.toJson();
     }
     return data;
   }
 }
 
-class Property {
+class Trip {
   int? id;
+  String? status;
   String? name;
-  String? picture;
+  String? price;
+  String? review;
+  String? image;
   String? country;
-  int? status;
-  int? views;
-  int? recommended;
-  int? catogerieId;
+  int? eventId;
   int? userId;
   String? createdAt;
   String? updatedAt;
-  PropertyDetails? propertyDetails;
-  List<Images>? images;
-  List<Facilities>? facilities;
+  TripDetails? tripDetails;
+  List<String>? features;
 
-  Property(
+  Trip(
       {this.id,
-      this.name,
-      this.picture,
-      this.country,
       this.status,
-      this.views,
-      this.recommended,
-      this.catogerieId,
+      this.name,
+      this.price,
+      this.review,
+      this.image,
+      this.country,
+      this.eventId,
       this.userId,
       this.createdAt,
       this.updatedAt,
-      this.propertyDetails,
-      this.images,
-      this.facilities});
+      this.tripDetails,
+      this.features});
 
-  Property.fromJson(Map<String, dynamic> json) {
+  Trip.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    name = json['name'];
-    picture = json['picture'];
-    country = json['country'];
     status = json['status'];
-    views = json['views'];
-    recommended = json['recommended'];
-    catogerieId = json['catogerie_id'];
+    name = json['name'];
+    price = json['price'];
+    review = json['review'];
+    image = json['image'];
+    country = json['country'];
+    eventId = json['event_id'];
     userId = json['user_id'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    propertyDetails = json['property_details'] != null
-        ? PropertyDetails.fromJson(json['property_details'])
+    tripDetails = json['trip_details'] != null
+        ? TripDetails.fromJson(json['trip_details'])
         : null;
-    if (json['images'] != null) {
-      images = <Images>[];
-      json['images'].forEach((v) {
-        images!.add(Images.fromJson(v));
-      });
-    }
-    if (json['facilities'] != null) {
-      facilities = <Facilities>[];
-      json['facilities'].forEach((v) {
-        facilities!.add(Facilities.fromJson(v));
-      });
-    }
+    features = json['features'].cast<String>();
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = id;
-    data['name'] = name;
-    data['picture'] = picture;
-    data['country'] = country;
     data['status'] = status;
-    data['views'] = views;
-    data['recommended'] = recommended;
-    data['catogerie_id'] = catogerieId;
+    data['name'] = name;
+    data['price'] = price;
+    data['review'] = review;
+    data['image'] = image;
+    data['country'] = country;
+    data['event_id'] = eventId;
     data['user_id'] = userId;
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
-    if (propertyDetails != null) {
-      data['property_details'] = propertyDetails!.toJson();
+    if (tripDetails != null) {
+      data['trip_details'] = tripDetails!.toJson();
     }
-    if (images != null) {
-      data['images'] = images!.map((v) => v.toJson()).toList();
-    }
-    if (facilities != null) {
-      data['facilities'] = facilities!.map((v) => v.toJson()).toList();
-    }
+    data['features'] = features;
     return data;
   }
 }
 
-class PropertyDetails {
+class TripDetails {
   int? id;
-  int? price;
-  String? rentalTerm;
+  String? bank;
   String? description;
-  int? space;
-  String? buildingType;
-  String? propertyDirection;
-  int? numbeerRoom;
-  int? numbeerToilet;
-  double? longitude;
-  double? latitude;
-  String? address;
-  String? sellerPhone;
-  String? createdAt;
-  String? updatedAt;
-  int? propertyId;
+  String? workingDays;
+  String? priceDay;
+  String? priceHour;
+  String? startTime;
+  String? endTime;
+  String? city;
+  String? addrees;
+  String? season;
+  String? groupSize;
+  String? age;
+  String? longitude;
+  String? latitude;
+  int? tripId;
 
-  PropertyDetails(
+  TripDetails(
       {this.id,
-      this.price,
-      this.rentalTerm,
+      this.bank,
       this.description,
-      this.space,
-      this.buildingType,
-      this.propertyDirection,
-      this.numbeerRoom,
-      this.numbeerToilet,
+      this.workingDays,
+      this.priceDay,
+      this.priceHour,
+      this.startTime,
+      this.endTime,
+      this.city,
+      this.addrees,
+      this.season,
+      this.groupSize,
+      this.age,
       this.longitude,
       this.latitude,
-      this.address,
-      this.sellerPhone,
-      this.createdAt,
-      this.updatedAt,
-      this.propertyId});
+      this.tripId});
 
-  PropertyDetails.fromJson(Map<String, dynamic> json) {
+  TripDetails.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    price = json['price'];
-    rentalTerm = json['Rental_term'];
+    bank = json['bank'];
     description = json['description'];
-    space = json['space'];
-    buildingType = json['building_type'];
-    propertyDirection = json['property_direction'];
-    numbeerRoom = json['numbeer_room'];
-    numbeerToilet = json['numbeer_toilet'];
+    workingDays = json['working_days'];
+    priceDay = json['price_day'];
+    priceHour = json['price_hour'];
+    startTime = json['start_time'];
+    endTime = json['end_time'];
+    city = json['city'];
+    addrees = json['addrees'];
+    season = json['season'];
+    groupSize = json['group_size'];
+    age = json['age'];
     longitude = json['longitude'];
     latitude = json['latitude'];
-    address = json['address'];
-    sellerPhone = json['seller_phone'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
-    propertyId = json['property_id'];
+    tripId = json['trip_id'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['id'] = id;
-    data['price'] = price;
-    data['Rental_term'] = rentalTerm;
+    data['bank'] = bank;
     data['description'] = description;
-    data['space'] = space;
-    data['building_type'] = buildingType;
-    data['property_direction'] = propertyDirection;
-    data['numbeer_room'] = numbeerRoom;
-    data['numbeer_toilet'] = numbeerToilet;
+    data['working_days'] = workingDays;
+    data['price_day'] = priceDay;
+    data['price_hour'] = priceHour;
+    data['start_time'] = startTime;
+    data['end_time'] = endTime;
+    data['city'] = city;
+    data['addrees'] = addrees;
+    data['season'] = season;
+    data['group_size'] = groupSize;
+    data['age'] = age;
     data['longitude'] = longitude;
     data['latitude'] = latitude;
-    data['address'] = address;
-    data['seller_phone'] = sellerPhone;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
-    data['property_id'] = propertyId;
-    return data;
-  }
-}
-
-class Images {
-  int? id;
-  int? propertyId;
-  String? imagePath;
-  String? createdAt;
-  String? updatedAt;
-
-  Images(
-      {this.id,
-      this.propertyId,
-      this.imagePath,
-      this.createdAt,
-      this.updatedAt});
-
-  Images.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    propertyId = json['property_id'];
-    imagePath = json['image_path'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = id;
-    data['property_id'] = propertyId;
-    data['image_path'] = imagePath;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
-    return data;
-  }
-}
-
-class Facilities {
-  int? id;
-  int? propertyId;
-  String? facility;
-  String? createdAt;
-  String? updatedAt;
-
-  Facilities(
-      {this.id,
-      this.propertyId,
-      this.facility,
-      this.createdAt,
-      this.updatedAt});
-
-  Facilities.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    propertyId = json['property_id'];
-    facility = json['facility'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = id;
-    data['property_id'] = propertyId;
-    data['facility'] = facility;
-    data['created_at'] = createdAt;
-    data['updated_at'] = updatedAt;
+    data['trip_id'] = tripId;
     return data;
   }
 }

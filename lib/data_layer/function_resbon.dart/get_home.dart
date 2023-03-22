@@ -1,26 +1,26 @@
 import 'package:travel_app_flutter/data_layer/database/connectdatabase.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/msnge_api.dart';
 
-getAllTopPropertyRespon() async {
+getAdventuresRespon() async {
   Curd curd = Curd();
   var respons = await curd.getrequest(
-    APiMange.mostview,
+    APiMange.adventures,
   );
   return respons;
 }
 
-getCountryRespon() async {
+getBoatsRespon() async {
   Curd curd = Curd();
   var respons = await curd.getrequest(
-    APiMange.forcountry,
+    APiMange.boats,
   );
   return respons;
 }
 
-getNewpropertyRespon() async {
+getTripsRespon() async {
   Curd curd = Curd();
   var respons = await curd.getrequest(
-    APiMange.newproperty,
+    APiMange.trips,
   );
   return respons;
 }
@@ -28,28 +28,7 @@ getNewpropertyRespon() async {
 getCatogeryRespon() async {
   Curd curd = Curd();
   var respons = await curd.getrequest(
-    APiMange.catogerydata,
+    APiMange.catogery,
   );
   return respons;
 }
-// getProductOfCatogeryRespon(int idCato, int idPage) async {
-//   Curd curd = Curd();
-//   var respons = await curd.getrequest(
-//     '${APiMange.products}/$idCato?page=$idPage',
-//   );
-//   return respons;
-// }
-
-// favoritRespon(int userId, int productId) async {
-//   Curd curd = Curd();
-//   var respons = await curd.postrequest(
-//     APiMange.wishlists,
-//     {
-//       'user_id': userId,
-//       'product_id': productId,
-//     },
-//     encode: true,
-//     myheadersres: myheaders2,
-//   );
-//   return respons;
-// }

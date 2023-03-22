@@ -4,6 +4,7 @@ import 'package:travel_app_flutter/application_layer/service/intitservices/servi
 import 'package:travel_app_flutter/presentation_layer/Infowidget/ui_components/info_widget.dart';
 import 'package:travel_app_flutter/presentation_layer/components/appbar1.dart';
 import 'package:travel_app_flutter/presentation_layer/components/searchWidget.dart';
+import 'package:travel_app_flutter/presentation_layer/handlingView/handlingview.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/color_manager.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/font_manager.dart';
 import 'package:travel_app_flutter/presentation_layer/screen/home_screen/controller/homeController.dart';
@@ -69,7 +70,6 @@ class HomeScreen extends StatelessWidget {
                 height: 200,
                 width: double.infinity,
                 child: ListView.builder(
-                    //   controller: controller.scrollController,
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     itemCount: bestaear.length,
@@ -152,45 +152,47 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              MostVisitedRealEstate(
-                title: 'فاعليات',
-                future: FUN(),
-                img: 'assets/images/event.jpg',
+              GetBuilder<HomeController>(
+                builder: (controller) {
+                  return HandlingDataView(
+                    statusRequest: controller.statusRequest,
+                    widget: MostVisitedRealEstate(
+                      title: 'مغامرات',
+                      data: controller.propertyCardModel,
+                    ),
+                  );
+                },
               ),
               const SizedBox(
                 height: 10,
               ),
-              MostVisitedRealEstate(
-                title: 'رحلات',
-                future: FUN(),
-                img: 'assets/images/lail.jpg',
+              GetBuilder<HomeController>(
+                builder: (controller) {
+                  return HandlingDataView(
+                    statusRequest: controller.statusRequest2,
+                    widget: MostVisitedRealEstate(
+                      title: 'ايجار مركبات',
+                      data: controller.propertyCardModel2,
+                    ),
+                  );
+                },
               ),
               const SizedBox(
                 height: 10,
               ),
-              MostVisitedRealEstate(
-                title: 'مغامرات',
-                future: FUN(),
-                img: 'assets/images/adv.jpg',
+              GetBuilder<HomeController>(
+                builder: (controller) {
+                  return HandlingDataView(
+                    statusRequest: controller.statusRequest3,
+                    widget: MostVisitedRealEstate(
+                      title: 'رحلات',
+                      data: controller.propertyCardModel3,
+                    ),
+                  );
+                },
               ),
               const SizedBox(
-                height: 10,
-              ),
-              MostVisitedRealEstate(
-                title: 'ايجار مركبات',
-                future: FUN(),
-                img: 'assets/images/mrkbo.jpg',
-              ),
-              const SizedBox(
-                height: 17,
-              ),
-              MostVisitedRealEstate(
-                title: 'الاكثر مشاركه',
-                future: FUN(),
-                img: 'assets/images/brashot.png',
-              ),
-              const SizedBox(
-                height: 17,
+                height: 20,
               ),
             ],
           );

@@ -43,9 +43,8 @@ class CustomTextfeild extends StatelessWidget {
 // 70 122
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: width,
-      height: height,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: width),
       child: Column(
         children: [
           if (text != null)
