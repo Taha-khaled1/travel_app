@@ -4,11 +4,11 @@ import 'package:travel_app_flutter/application_layer/ShardFunction/handling.dart
 import 'package:travel_app_flutter/application_layer/ShardFunction/statusrequst.dart';
 import 'package:travel_app_flutter/data_layer/function_resbon.dart/product_detalis_res.dart';
 import 'package:travel_app_flutter/domin_layer/models/propertyDetalisModel.dart';
+import 'package:travel_app_flutter/presentation_layer/components/show_dialog.dart';
 
 class PropertDetalisController extends GetxController {
   final GlobalKey<FormState> formkeysigin = GlobalKey();
-  late String phone, email, name;
-  String? descag, phoneag, emailag, nameag;
+
   int idProperty = Get.arguments['id'];
 
   TripDatelisModel? propertyDetalisModel;

@@ -12,18 +12,30 @@ getTripDetalisRespon(int idproduct) async {
   return respons;
 }
 
-// addCartRespon(String userId, String productId, String quantity) async {
-//   Curd curd = Curd();
-//   var respons = await curd.postrequest(
-//     APiMange.gteAddCartList,
-//     {
-//       'user_id': userId,
-//       'id': productId, //productId
-//       "quantity": quantity,
-//       "variant": "",
-//     },
-//     encode: true,
-//     myheadersres: myheaders2,
-//   );
-//   return respons;
-// }
+addBooktripRespon(
+    {required String trip_id,
+    required String name,
+    required String phone,
+    required String description,
+    required String email,
+    required String start_data,
+    required String end_data,
+    required String pay}) async {
+  Curd curd = Curd();
+  var respons = await curd.postrequest(
+    APiMange.booktrip,
+    {
+      'trip_id': trip_id,
+      'name': name,
+      "phone": phone,
+      "description": description,
+      'email': email,
+      'start_data': start_data,
+      "end_data": end_data,
+      "pay": pay,
+    },
+    encode: true,
+    myheadersres: myheaders,
+  );
+  return respons;
+}

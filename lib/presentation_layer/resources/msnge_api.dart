@@ -11,6 +11,7 @@ class APiMange {
   static const String search = "$baseurl/searchnameorcountrey";
   static const String detalis = "$baseurl/tripdetalis";
   static const String catogery = "$baseurl/catogery";
+  static const String booktrip = "$baseurl/booktrip";
   //-------------------------------------------------------------------------------------//
   static const String login = "$baseurl/auth/login";
   static const String propertydetalis = "$baseurl/propertydetalis";

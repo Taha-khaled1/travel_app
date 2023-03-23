@@ -9,6 +9,7 @@ import 'package:travel_app_flutter/presentation_layer/components/customListtile.
 import 'package:travel_app_flutter/presentation_layer/components/custombutten.dart';
 import 'package:travel_app_flutter/presentation_layer/components/customtextfild.dart';
 import 'package:travel_app_flutter/presentation_layer/components/handelAttch.dart';
+import 'package:travel_app_flutter/presentation_layer/handlingView/handlingview.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/color_manager.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/styles_manager.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/values_manager.dart';
@@ -196,25 +197,24 @@ class ContactBookScreen extends StatelessWidget {
                     height: 200,
                   ),
                   const SizedBox(height: 15),
-                  CustomButton(
-                    width: double.infinity,
-                    haigh: 60,
-                    color: ColorManager.button,
-                    text: 'الاستعلام الان',
-                    press: () {
-                      if (controller.formkeysigin.currentState!.validate()) {
-                        controller.formkeysigin.currentState!.save();
-                        QuickAlert.show(
-                          context: context,
-                          type: QuickAlertType.success,
-                          text: 'تم إرسال الاستعلام بنجاح ',
-                          onConfirmBtnTap: () {
-                            Get.back();
-                            Future.delayed(const Duration(milliseconds: 100));
-                            Get.back();
+                  GetBuilder<ContactBookController>(
+                    builder: (controller) {
+                      return HandlingDataView(
+                        statusRequest: controller.statusRequest,
+                        widget: CustomButton(
+                          width: double.infinity,
+                          haigh: 60,
+                          color: ColorManager.button,
+                          text: 'الاستعلام الان',
+                          press: () {
+                            if (controller.formkeysigin.currentState!
+                                .validate()) {
+                              controller.formkeysigin.currentState!.save();
+                              controller.addBook(context);
+                            }
                           },
-                        );
-                      }
+                        ),
+                      );
                     },
                   ),
                   SizedBox(height: 15),
