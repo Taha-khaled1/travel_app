@@ -4,7 +4,7 @@ import 'package:travel_app_flutter/application_layer/ShardFunction/handling.dart
 import 'package:travel_app_flutter/application_layer/ShardFunction/statusrequst.dart';
 import 'package:travel_app_flutter/application_layer/service/intitservices/services.dart';
 import 'package:travel_app_flutter/data_layer/function_resbon.dart/get_home.dart';
-import 'package:travel_app_flutter/domin_layer/TriphomeModel.dart';
+import 'package:travel_app_flutter/domin_layer/models/TriphomeModel.dart';
 
 class HomeController extends GetxController {
   String? propertyType, propertyclassfication, propertydirection, propertyrentl;

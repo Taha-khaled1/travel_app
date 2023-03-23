@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:travel_app_flutter/domin_layer/TriphomeModel.dart';
+import 'package:travel_app_flutter/domin_layer/models/TriphomeModel.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/color_manager.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/font_manager.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/msnge_api.dart';
@@ -54,7 +54,7 @@ class CardProperty extends StatelessWidget {
     super.key,
     required this.tripsModel,
   });
-  final TripsModel? tripsModel;
+  final tripsModel;
   @override
   Widget build(BuildContext context) {
     return InkWell(

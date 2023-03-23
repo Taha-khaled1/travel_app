@@ -1,68 +1,83 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:travel_app_flutter/data_layer/database/connectdatabase.dart';
+import 'package:travel_app_flutter/domin_layer/models/TriphomeMoreModel.dart';
+import 'package:travel_app_flutter/presentation_layer/resources/msnge_api.dart';
 
 class MoreProductController extends GetxController {
-  int page = 0;
-  // ProductModels? productModels;
-  // ProductModels? productModelsload;
-
+  int page = 1;
+  TriphomeMoreModel? propertyCardModel;
+  TriphomeMoreModel? propertyCardModellsload;
+  // late StatusRequest statusRequest;
   bool isFirstLoadRunning = false;
   bool hasNextPage = true;
   bool isLoadMoreRunning = false;
+  String search = Get.arguments['search'] ?? '';
+  void _loadMore() async {
+    if (hasNextPage == true &&
+        isFirstLoadRunning == false &&
+        isLoadMoreRunning == false &&
+        scrollController.position.extentAfter < 300) {
+      isLoadMoreRunning = true; // Display a progress indicator at the bottom
+      update();
+      page += 1; // Increase page by 1
+      try {
+        var response;
 
-  // void _loadMore() async {
-  //   if (hasNextPage == true &&
-  //       isFirstLoadRunning == false &&
-  //       isLoadMoreRunning == false &&
-  //       controller.position.extentAfter < 300) {
-  //     isLoadMoreRunning = true; // Display a progress indicator at the bottom
-  //     update();
+        response = await getSearchRespon(search, page);
 
-  //     page += 1; // Increase page by 1
+        propertyCardModellsload = TriphomeMoreModel.fromJson(response);
 
-  //     try {
-  //       var response = await getProductOfCatogeryRespon(Get.arguments[0], page);
-  //       productModelsload = await ProductModels.fromJson(response);
-  //       ;
+        if (propertyCardModellsload!.trip!.isNotEmpty) {
+          propertyCardModel!.trip!.addAll(propertyCardModellsload!.trip!);
+          update();
+        } else {
+          hasNextPage = false;
+          update();
+        }
+      } catch (err) {
+        if (kDebugMode) {
+          print('Something went wrong!');
+        }
+      }
 
-  //       if (productModelsload!.data!.isNotEmpty) {
-  //         productModels!.data!.addAll(productModelsload!.data!);
-  //         update();
-  //       } else {
-  //         hasNextPage = false;
-  //         update();
-  //       }
-  //     } catch (err) {
-  //       if (kDebugMode) {
-  //         print('Something went wrong!');
-  //       }
-  //     }
+      isLoadMoreRunning = false;
+      update();
+    }
+    update();
+  }
 
-  //     isLoadMoreRunning = false;
-  //     update();
-  //   }
-  //   update();
-  // }
+  void firstLoad() async {
+    isFirstLoadRunning = true;
+    update();
+    var response = await getSearchRespon(search, page);
+    print(response);
+    try {
+      propertyCardModel = await TriphomeMoreModel.fromJson(response);
+      isFirstLoadRunning = false;
+    } catch (e) {
+      print(e);
+    }
+    update();
+    return response;
+  }
 
-  // void firstLoad() async {
-  //   isFirstLoadRunning = true;
-  //   update();
+  late ScrollController scrollController;
+  @override
+  void onInit() {
+    firstLoad();
+    update();
+    scrollController = ScrollController()..addListener(_loadMore);
 
-  //   var response = await getProductOfCatogeryRespon(Get.arguments[0], 1);
-  //   productModels = await ProductModels.fromJson(response);
-  //   update();
-  //   isFirstLoadRunning = false;
-  //   update();
-  //   return response;
-  // }
+    super.onInit();
+  }
+}
 
-  // late ScrollController controller;
-  // @override
-  // void onInit() {
-  //   firstLoad();
-  //   update();
-  //   controller = ScrollController()..addListener(_loadMore);
-  //   super.onInit();
-  // }
+getSearchRespon(String inpout, int page) async {
+  Curd curd = Curd();
+  var respons = await curd.getrequest(
+    '${APiMange.search}?name=$inpout&page=$page',
+  );
+  return respons;
 }

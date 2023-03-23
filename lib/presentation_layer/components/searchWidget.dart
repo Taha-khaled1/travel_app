@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 import 'package:travel_app_flutter/presentation_layer/more_product/more_product.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/color_manager.dart';
 import 'package:travel_app_flutter/presentation_layer/screen/Filtter/Filtter_screen.dart';
+import 'package:travel_app_flutter/presentation_layer/screen/home_screen/controller/homeController.dart';
+
+String SearchS = '';
 
 class Search extends StatelessWidget {
   const Search({
@@ -11,6 +14,7 @@ class Search extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HomeController controller = Get.put(HomeController());
     return Padding(
       padding: const EdgeInsets.only(top: 10, bottom: 17, right: 10, left: 10),
       child: Container(
@@ -19,7 +23,7 @@ class Search extends StatelessWidget {
           color: ColorManager.grey2,
           borderRadius: BorderRadius.circular(20),
           // gradient: ColorManager.y,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.grey,
               blurRadius: 5.0,
@@ -29,13 +33,17 @@ class Search extends StatelessWidget {
           ],
         ),
         child: TextField(
-          style: TextStyle(color: ColorManager.kTextblack, fontSize: 20),
+          onChanged: (value) {
+            SearchS = value.toString();
+            print(SearchS);
+          },
+          style: const TextStyle(color: ColorManager.kTextblack, fontSize: 20),
           decoration: InputDecoration(
             border: InputBorder.none,
             hintText: 'ابحث عن معالم ، وجهات، فنادق',
             suffixIcon: IconButton(
               onPressed: () {
-                Get.to(() => FiltterScreen());
+                Get.to(() => const FiltterScreen());
               },
               icon: Image.asset(
                 'assets/icons/filtter.png',
@@ -46,7 +54,10 @@ class Search extends StatelessWidget {
             ),
             prefixIcon: IconButton(
                 onPressed: () {
-                  Get.to(() => MoreProductScreen());
+                  Get.to(
+                    () => const MoreProductScreen(),
+                    arguments: {'search': SearchS},
+                  );
                 },
                 icon: Icon(
                   Icons.search,
