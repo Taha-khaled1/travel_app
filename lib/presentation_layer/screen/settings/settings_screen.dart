@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quickalert/quickalert.dart';
@@ -8,6 +10,7 @@ import 'package:travel_app_flutter/presentation_layer/resources/color_manager.da
 import 'package:travel_app_flutter/presentation_layer/resources/font_manager.dart';
 import 'package:travel_app_flutter/presentation_layer/screen/authentication_screen/edit_profile_screen/edit_profile_screen.dart';
 import 'package:travel_app_flutter/presentation_layer/screen/home_screen/home_screen.dart';
+import 'package:travel_app_flutter/presentation_layer/screen/settings/screenseting/aboutpage.dart';
 import 'package:travel_app_flutter/presentation_layer/screen/settings/screenseting/changepass.dart';
 import 'package:travel_app_flutter/presentation_layer/screen/settings/screenseting/sharescreen.dart';
 import 'package:travel_app_flutter/presentation_layer/screen/settings/screenseting/terms.dart';
@@ -53,8 +56,9 @@ class SettingsScreen extends StatelessWidget {
                   Transform.translate(
                     offset: const Offset(0, -30),
                     child: const CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage('assets/images/logoapp.png'),
+                      backgroundColor: Colors.white,
+                      radius: 60,
+                      backgroundImage: AssetImage('assets/images/77trips.png'),
                     ),
                   ),
                   Text(
@@ -87,19 +91,19 @@ class SettingsScreen extends StatelessWidget {
                       color: ColorManager.kTextone,
                     ),
                   ),
-                  CustomListtile(
-                    onTap: () {
-                      changepass(
-                        context,
-                      );
-                    },
-                    titel: 'تغيير كلمة السر',
-                    widget: const Icon(
-                      Icons.change_circle,
-                      size: 30,
-                      color: ColorManager.kTextone,
-                    ),
-                  ),
+                  // CustomListtile(
+                  //   onTap: () {
+                  //     changepass(
+                  //       context,
+                  //     );
+                  //   },
+                  //   titel: 'تغيير كلمة السر',
+                  //   widget: const Icon(
+                  //     Icons.change_circle,
+                  //     size: 30,
+                  //     color: ColorManager.kTextone,
+                  //   ),
+                  // ),
                   CustomListtile(
                     onTap: () {
                       Get.to(() => const InviteFriend());
@@ -113,9 +117,9 @@ class SettingsScreen extends StatelessWidget {
                   ),
                   CustomListtile(
                     onTap: () {
-                      Get.to(() => const InviteFriend());
+                      Get.to(() => const AboutPage());
                     },
-                    titel: 'تسجيل الخروج',
+                    titel: 'معلومات عنا',
                     widget: const Icon(
                       Icons.exit_to_app,
                       size: 30,
@@ -124,41 +128,53 @@ class SettingsScreen extends StatelessWidget {
                   ),
                   CustomListtile(
                     onTap: () {
-                      QuickAlert.show(
-                        showCancelBtn: true,
-                        context: context,
-                        type: QuickAlertType.warning,
-                        text:
-                            'سيتم حذف الحساب الخاص بك نهائيا من/n قاعدة البيانات الخاصه بنا ',
-                        title: 'هل متاكد من حذف الحساب',
-                        cancelBtnText: 'تراجع',
-                        confirmBtnText: 'نعم متاكد',
-                        confirmBtnColor: ColorManager.error,
-                        onCancelBtnTap: () {
-                          Get.back();
-                        },
-                        onConfirmBtnTap: () {
-                          QuickAlert.show(
-                            context: context,
-                            type: QuickAlertType.warning,
-                            text:
-                                '  سيتم حذف الحساب الخاص بك نهائيا من قاعدة البيانات الخاصه بنا/n في خلال 30 يوم من الان ويمكنك الدخول اليه ف هذه الوقت',
-                            title: 'الحاله',
-                            onConfirmBtnTap: () {
-                              Get.back();
-                              Get.back();
-                            },
-                          );
-                        },
-                      );
+                      exit(0);
                     },
-                    titel: 'حذف الحساب',
+                    titel: 'الخروج من التطبيق',
                     widget: const Icon(
-                      Icons.delete,
+                      Icons.exit_to_app,
                       size: 30,
                       color: ColorManager.kTextone,
                     ),
                   ),
+
+                  // CustomListtile(
+                  //   onTap: () {
+                  //     QuickAlert.show(
+                  //       showCancelBtn: true,
+                  //       context: context,
+                  //       type: QuickAlertType.warning,
+                  //       text:
+                  //           'سيتم حذف الحساب الخاص بك نهائيا من/n قاعدة البيانات الخاصه بنا ',
+                  //       title: 'هل متاكد من حذف الحساب',
+                  //       cancelBtnText: 'تراجع',
+                  //       confirmBtnText: 'نعم متاكد',
+                  //       confirmBtnColor: ColorManager.error,
+                  //       onCancelBtnTap: () {
+                  //         Get.back();
+                  //       },
+                  //       onConfirmBtnTap: () {
+                  //         QuickAlert.show(
+                  //           context: context,
+                  //           type: QuickAlertType.warning,
+                  //           text:
+                  //               '  سيتم حذف الحساب الخاص بك نهائيا من قاعدة البيانات الخاصه بنا/n في خلال 30 يوم من الان ويمكنك الدخول اليه ف هذه الوقت',
+                  //           title: 'الحاله',
+                  //           onConfirmBtnTap: () {
+                  //             Get.back();
+                  //             Get.back();
+                  //           },
+                  //         );
+                  //       },
+                  //     );
+                  //   },
+                  //   titel: 'حذف الحساب',
+                  //   widget: const Icon(
+                  //     Icons.delete,
+                  //     size: 30,
+                  //     color: ColorManager.kTextone,
+                  //   ),
+                  // ),
                 ],
               ),
             ),

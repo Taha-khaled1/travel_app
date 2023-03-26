@@ -7,7 +7,6 @@ import 'package:travel_app_flutter/application_layer/ShardFunction/handling.dart
 import 'package:travel_app_flutter/application_layer/ShardFunction/statusrequst.dart';
 import 'package:travel_app_flutter/data_layer/function_resbon.dart/product_detalis_res.dart';
 import 'package:travel_app_flutter/main.dart';
-import 'package:travel_app_flutter/presentation_layer/components/show_dialog.dart';
 
 class ContactBookController extends GetxController {
   final GlobalKey<FormState> formkeysigin = GlobalKey();
@@ -18,11 +17,26 @@ class ContactBookController extends GetxController {
       TextEditingController(text: DateTime.now().toString());
 
   final tripId = sharedPreferences.getString('tripId');
+  final tripimage = sharedPreferences.getString('image');
+  final tripname = sharedPreferences.getString('name');
+  final tripcountry = sharedPreferences.getString('country');
   String pay = 'حساب بنكي';
   changepay(String x) {
     pay = x;
     update();
     Get.back();
+  }
+
+  void addcop(BuildContext context) {
+    sqlDb!.insertData(
+      '''
+       INSERT INTO hagez
+       (id,image,country,name)
+        VALUES
+       ('$tripId','$tripimage','$tripcountry','$tripname') 
+        
+        ''',
+    );
   }
 
   StatusRequest statusRequest = StatusRequest.none;
@@ -40,23 +54,21 @@ class ContactBookController extends GetxController {
       trip_id: tripId!,
     );
     statusRequest = handlingData(respon);
-    try {
-      if (StatusRequest.success == statusRequest) {
-        QuickAlert.show(
-          context: context,
-          type: QuickAlertType.success,
-          text: 'تم إرسال الحجز بنجاح سيتم التواصل معك قريبا ',
-          onConfirmBtnTap: () {
-            Get.back();
-            Future.delayed(const Duration(milliseconds: 100));
-            Get.back();
-          },
-        );
-      } else {
-        statusRequest = StatusRequest.serverfailure;
-      }
-    } catch (e) {
-      statusRequest = StatusRequest.erorr;
+
+    if (StatusRequest.success == statusRequest) {
+      addcop(context);
+      QuickAlert.show(
+        context: context,
+        type: QuickAlertType.success,
+        text: 'تم إرسال الحجز بنجاح سيتم التواصل معك قريبا ',
+        onConfirmBtnTap: () {
+          Get.back();
+          Future.delayed(const Duration(milliseconds: 100));
+          Get.back();
+        },
+      );
+    } else {
+      statusRequest = StatusRequest.serverfailure;
     }
 
     update();

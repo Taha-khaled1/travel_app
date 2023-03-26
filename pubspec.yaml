@@ -61,6 +61,8 @@ dependencies:
   date_time_picker: ^2.1.0
   timeline_tile: ^2.0.0
   cupertino_stepper: ^0.2.1
+  package_info_plus: ^3.0.3
+  in_app_update: ^4.0.1
 
 
 
@@ -79,13 +81,13 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#FFFFFF"
-  image: assets/icons/logoappt.png
+  image: assets/images/77trips.png
   android_gravity: center
 
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/icons/logoappt.png"
+  image_path: "assets/images/77trips.png"
   adaptive_icon_background: "#FFFFFF"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

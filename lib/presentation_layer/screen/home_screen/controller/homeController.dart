@@ -5,6 +5,7 @@ import 'package:travel_app_flutter/application_layer/ShardFunction/statusrequst.
 import 'package:travel_app_flutter/application_layer/service/intitservices/services.dart';
 import 'package:travel_app_flutter/data_layer/function_resbon.dart/get_home.dart';
 import 'package:travel_app_flutter/domin_layer/models/TriphomeModel.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class HomeController extends GetxController {
   String? propertyType, propertyclassfication, propertydirection, propertyrentl;
@@ -164,7 +165,7 @@ class HomeController extends GetxController {
   // }
 
   @override
-  void onInit() {
+  void onInit() async {
     getAdventures();
     getBoats();
     getTrips();

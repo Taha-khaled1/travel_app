@@ -48,7 +48,7 @@ class EditProfileScreen extends StatelessWidget {
                     return null;
                   },
                   titel: 'ادخل هنا',
-                  width: deviceInfo.localWidth * 0.85,
+                  width: deviceInfo.localWidth * 0.05,
                   height: 108,
                 ),
                 const SizedBox(height: 10),
@@ -63,7 +63,7 @@ class EditProfileScreen extends StatelessWidget {
                     return null;
                   },
                   titel: 'ادخل هنا',
-                  width: deviceInfo.localWidth * 0.85,
+                  width: deviceInfo.localWidth * 0.05,
                   height: 108,
                 ),
                 const SizedBox(height: 10),
@@ -78,13 +78,13 @@ class EditProfileScreen extends StatelessWidget {
                     return null;
                   },
                   titel: 'ادخل هنا',
-                  width: deviceInfo.localWidth * 0.85,
+                  width: deviceInfo.localWidth * 0.05,
                   height: 108,
                 ),
                 const SizedBox(height: 10),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: deviceInfo.localWidth * 0.06,
+                    horizontal: deviceInfo.localWidth * 0.05,
                   ),
                   child: Align(
                     alignment: Alignment.centerRight,
@@ -97,7 +97,7 @@ class EditProfileScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Editpay(size: deviceInfo.localWidth * 0.06),
+                Editpay(size: deviceInfo.localWidth * 0.05),
                 const SizedBox(height: 10),
 
                 CustomTextfeild(
@@ -110,11 +110,11 @@ class EditProfileScreen extends StatelessWidget {
                     return null;
                   },
                   titel: 'Abudabhi 201,82299 ابوظبي',
-                  width: deviceInfo.localWidth * 0.85,
+                  width: deviceInfo.localWidth * 0.05,
                   height: 108,
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 CustomButton(
                   width: deviceInfo.localWidth * 0.85,

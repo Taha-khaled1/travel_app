@@ -33,27 +33,26 @@ class SqlDb {
 
     batch.execute(
         '''
-    CREATE TABLE favorite (
-    "id" INTEGER  NOT NULL PRIMARY KEY  AUTOINCREMENT,
-    "isfavorit" INTEGER NULL,
-    "title" TEXT(500),
-    "image" TEXT(500),
-    "descr" TEXT(5000),
-    "price" TEXT(500)
+    CREATE TABLE hagez (
+    "id" INTEGER,
+    "image" TEXT(255),
+    "country" TEXT(255),
+    "name"  TEXT(255)
 );
  ''');
+
     batch.execute(
         '''
-    CREATE TABLE cart (
-    "id" INTEGER  NOT NULL PRIMARY KEY  AUTOINCREMENT,
-    "itemsId" INTEGER NULL,
-    "itemsName" TEXT(255),
-    "itemsPrice" TEXT(255),
-    "itemsImage" TEXT(255),
-    "itemsDiscount" TEXT(255)
-);
- ''');
-    // print(" onCreate =====================================");
+     CREATE TABLE person (
+    "name" TEXT (255),
+    "country" TEXT (255),
+    "phone" TEXT(255),
+    "adress" TEXT(255),
+    "pay" TEXT(255)
+  );
+    ''');
+
+    print(" onCreate =====================================");
     batch.commit();
   }
 

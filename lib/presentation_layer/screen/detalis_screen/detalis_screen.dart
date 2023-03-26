@@ -197,6 +197,25 @@ class PropertyDetalisScreen extends StatelessWidget {
                                             .toString() ??
                                         '1',
                                   );
+                                  sharedPreferences.setString(
+                                    'image',
+                                    controller.propertyDetalisModel?.trip!.image
+                                            .toString() ??
+                                        '1',
+                                  );
+                                  sharedPreferences.setString(
+                                    'name',
+                                    controller.propertyDetalisModel?.trip!.name
+                                            .toString() ??
+                                        '1',
+                                  );
+                                  sharedPreferences.setString(
+                                    'country',
+                                    controller
+                                            .propertyDetalisModel?.trip!.country
+                                            .toString() ??
+                                        '1',
+                                  );
                                 },
                               ),
                             ],
