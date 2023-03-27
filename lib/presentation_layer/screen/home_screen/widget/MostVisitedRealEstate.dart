@@ -91,11 +91,15 @@ class CardProperty extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    tripsModel!.name.toString(), //searchesModel!.title ?? '',
+                    tripsModel!.name.length > 12
+                        ? '${tripsModel!.name.toString().substring(0, 12)}..'
+                        : tripsModel!.name
+                            .toString(), //searchesModel!.title ?? '',
                     style: MangeStyles().getBoldStyle(
                       color: ColorManager.kTexttow,
                       fontSize: FontSize.s14,
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     tripsModel!.country.toString(),
@@ -103,6 +107,7 @@ class CardProperty extends StatelessWidget {
                       color: ColorManager.kTextblack,
                       fontSize: FontSize.s14,
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
