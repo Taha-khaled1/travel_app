@@ -54,7 +54,7 @@ dependencies:
  # geolocator: ^9.0.2
   firebase_core: ^2.4.1
   firebase_storage: ^11.0.10
-  google_maps_flutter: ^2.2.3
+ 
   country_picker: ^2.0.19
 
   syncfusion_flutter_sliders: ^20.4.49

@@ -15,9 +15,6 @@ void main() async {
   sqlDb = SqlDb();
 
   runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => const MyApp(), // Wrap your app
-    ),
+    const MyApp(), // Wrap your app
   );
 }

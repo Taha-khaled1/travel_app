@@ -5,6 +5,7 @@ import 'package:travel_app_flutter/presentation_layer/Infowidget/ui_components/i
 import 'package:travel_app_flutter/presentation_layer/components/appbar1.dart';
 import 'package:travel_app_flutter/presentation_layer/components/custombutten.dart';
 import 'package:travel_app_flutter/presentation_layer/components/customtextfild.dart';
+import 'package:travel_app_flutter/presentation_layer/components/searchWidget.dart';
 import 'package:travel_app_flutter/presentation_layer/more_product/more_product.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/color_manager.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/font_manager.dart';
@@ -348,7 +349,10 @@ class _FiltterScreenState extends State<FiltterScreen> {
                 color: ColorManager.kTextone,
                 text: 'البحث الان',
                 press: () {
-                  Get.to(() => MoreProductScreen());
+                  Get.to(
+                    () => const MoreProductScreen(),
+                    arguments: {'search': ''},
+                  );
                 },
               ),
             ],

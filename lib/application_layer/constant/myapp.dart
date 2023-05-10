@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
 //   // String latestVersion = await fetchLatestVersionFromServer();
 // AppUpdateInfo updateInfo = await InAppUpdate.checkForUpdate();
 
-// if (updateInfo.updateAvailable) {
+// if (updateInfo.updatePriority) {
 //   // An update is available on the Google Play Store
 //   if (updateInfo.updatePriority == UpdatePriority.immediate ) {
 //     // Prompt the user to download and install the update immediately
@@ -39,15 +39,15 @@ class _MyAppState extends State<MyApp> {
 // }
 // }
 
-  //  Future<void> checkForUpdate() async {
-  //   InAppUpdate.checkForUpdate().then((info) {
-  //     setState(() {
-  //       _updateInfo = info;
-  //     });
-  //   }).catchError((e) {
-  //     showSnack(e.toString());
-  //   });
-  // }
+//    Future<void> checkForUpdate() async {
+//     InAppUpdate.checkForUpdate().then((info) {
+//       setState(() {
+//         _updateInfo = info;
+//       });
+//     }).catchError((e) {
+//       showSnack(e.toString());
+//     });
+//   }
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(

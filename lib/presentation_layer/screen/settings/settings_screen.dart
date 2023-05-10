@@ -2,8 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quickalert/quickalert.dart';
-import 'package:travel_app_flutter/application_layer/service/intitservices/services.dart';
 import 'package:travel_app_flutter/presentation_layer/components/appbar1.dart';
 import 'package:travel_app_flutter/presentation_layer/components/customListtile.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/color_manager.dart';
@@ -11,7 +9,6 @@ import 'package:travel_app_flutter/presentation_layer/resources/font_manager.dar
 import 'package:travel_app_flutter/presentation_layer/screen/authentication_screen/edit_profile_screen/edit_profile_screen.dart';
 import 'package:travel_app_flutter/presentation_layer/screen/home_screen/home_screen.dart';
 import 'package:travel_app_flutter/presentation_layer/screen/settings/screenseting/aboutpage.dart';
-import 'package:travel_app_flutter/presentation_layer/screen/settings/screenseting/changepass.dart';
 import 'package:travel_app_flutter/presentation_layer/screen/settings/screenseting/sharescreen.dart';
 import 'package:travel_app_flutter/presentation_layer/screen/settings/screenseting/terms.dart';
 import 'package:travel_app_flutter/presentation_layer/resources/styles_manager.dart';
@@ -69,17 +66,17 @@ class SettingsScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 5),
-                  CustomListtile(
-                    onTap: () {
-                      Get.to(const EditProfileScreen());
-                    },
-                    titel: 'البيانات الشخصية',
-                    widget: const Icon(
-                      Icons.person,
-                      size: 30,
-                      color: ColorManager.kTextone,
-                    ),
-                  ),
+                  // CustomListtile(
+                  //   onTap: () {
+                  //     Get.to(const EditProfileScreen());
+                  //   },
+                  //   titel: 'البيانات الشخصية',
+                  //   widget: const Icon(
+                  //     Icons.person,
+                  //     size: 30,
+                  //     color: ColorManager.kTextone,
+                  //   ),
+                  // ),
                   CustomListtile(
                     onTap: () {
                       Get.to(() => TermsAndConditionsPage());
