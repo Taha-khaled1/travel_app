@@ -21,13 +21,13 @@ class MostVisitedRealEstate extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: Text(
-              title,
-              style: MangeStyles().getBoldStyle(
-                color: ColorManager.kTextone,
-                fontSize: FontSize.s18,
-              ),
-            ),
+            // child: Text(
+            //   title,
+            //   style: MangeStyles().getBoldStyle(
+            //     color: ColorManager.kTextone,
+            //     fontSize: FontSize.s18,
+            //   ),
+            // ),
           ),
           const SizedBox(
             height: 10,

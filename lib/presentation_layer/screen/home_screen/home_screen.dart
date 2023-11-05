@@ -109,49 +109,50 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Container(
-                alignment: Alignment.center,
-                height: 200,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: Text(
-                        'انواع الفاعليات',
-                        style: MangeStyles().getRegularStyle(
-                          color: ColorManager.kTexttow,
-                          fontSize: FontSize.s18,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Expanded(
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
+              // Container(
+              //   alignment: Alignment.center,
+              //   height: 200,
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.start,
+              //     children: [
+              //       Padding(
+              //         padding: const EdgeInsets.only(right: 10),
+              //         child: Text(
+              //           'انواع الفاعليات',
+              //           style: MangeStyles().getRegularStyle(
+              //             color: ColorManager.kTexttow,
+              //             fontSize: FontSize.s18,
+              //           ),
+              //         ),
+              //       ),
+              //       const SizedBox(
+              //         height: 10,
+              //       ),
+              //       Expanded(
+              //         child: ListView.builder(
+              //           scrollDirection: Axis.horizontal,
 
-                        itemCount: proptype
-                            .length, //controller.catogeryModels?.data?.length,
+              //           itemCount: proptype
+              //               .length, //controller.catogeryModels?.data?.length,
 
-                        itemBuilder: (BuildContext context, int index) {
-                          return PropertyType(
-                            image: proptype[index].image,
-                            haigh: 180,
-                            id: 1,
-                            title: proptype[index].name,
-                            width: 290,
-                          );
-                        },
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                  ],
-                ),
-              ),
+              //           itemBuilder: (BuildContext context, int index) {
+              //             return PropertyType(
+              //               image: proptype[index].image,
+              //               haigh: 180,
+              //               id: 1,
+              //               title: proptype[index].name,
+              //               width: 290,
+              //             );
+              //           },
+              //         ),
+              //       ),
+              //       const SizedBox(
+              //         height: 10,
+              //       ),
+              //     ],
+              //   ),
+              // ),
+
               GetBuilder<HomeController>(
                 builder: (controller) {
                   return HandlingDataView(

@@ -9,7 +9,7 @@ import 'package:travel_app_flutter/presentation_layer/components/show_dialog.dar
 class PropertDetalisController extends GetxController {
   final GlobalKey<FormState> formkeysigin = GlobalKey();
 
-  int idProperty = Get.arguments['id'];
+  int idProperty = 1; // Get.arguments['id'];
 
   TripDatelisModel? propertyDetalisModel;
   late StatusRequest statusRequest;

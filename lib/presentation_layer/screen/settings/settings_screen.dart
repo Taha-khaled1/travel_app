@@ -59,7 +59,7 @@ class SettingsScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'الشركه السياحيه',
+                    '77 Trips',
                     style: MangeStyles().getBoldStyle(
                       color: ColorManager.kTexttow,
                       fontSize: FontSize.s20,

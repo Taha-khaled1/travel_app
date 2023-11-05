@@ -188,9 +188,6 @@ class PropertyDetalisScreen extends StatelessWidget {
                                 color: ColorManager.button,
                                 text: 'اتصل الآن',
                                 press: () {
-                                  Get.to(
-                                    () => const ContactBookScreen(),
-                                  );
                                   sharedPreferences.setString(
                                     'tripId',
                                     controller.propertyDetalisModel?.trip!.id!
@@ -215,6 +212,9 @@ class PropertyDetalisScreen extends StatelessWidget {
                                             .propertyDetalisModel?.trip!.country
                                             .toString() ??
                                         '1',
+                                  );
+                                  Get.to(
+                                    () => const ContactBookScreen(),
                                   );
                                 },
                               ),

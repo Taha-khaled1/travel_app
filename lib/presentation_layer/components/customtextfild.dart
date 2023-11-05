@@ -6,6 +6,7 @@ import 'package:travel_app_flutter/presentation_layer/resources/styles_manager.d
 class CustomTextfeild extends StatelessWidget {
   final String titel;
   final bool? obsecuer;
+  final TextEditingController? controller;
   final IconData? icon;
   final void Function()? iconontap;
   final String? Function(String?)? onsaved;
@@ -39,6 +40,7 @@ class CustomTextfeild extends StatelessWidget {
     this.readOnly = false,
     this.onTap,
     this.text,
+    this.controller,
   });
 // 70 122
   @override
@@ -60,6 +62,7 @@ class CustomTextfeild extends StatelessWidget {
             ),
           TextFormField(
             onTap: onTap,
+            controller: controller,
             readOnly: readOnly,
             maxLines: maxLines,
             initialValue: inialvalue,
