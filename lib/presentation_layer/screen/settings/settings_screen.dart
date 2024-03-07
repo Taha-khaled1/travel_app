@@ -55,11 +55,11 @@ class SettingsScreen extends StatelessWidget {
                     child: const CircleAvatar(
                       backgroundColor: Colors.white,
                       radius: 60,
-                      backgroundImage: AssetImage('assets/images/77trips.png'),
+                      backgroundImage: AssetImage('assets/images/logoweb.png'),
                     ),
                   ),
                   Text(
-                    '77 Trips',
+                    '77Trips',
                     style: MangeStyles().getBoldStyle(
                       color: ColorManager.kTexttow,
                       fontSize: FontSize.s20,

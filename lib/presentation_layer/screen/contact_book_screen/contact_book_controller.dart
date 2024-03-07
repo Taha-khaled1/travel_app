@@ -18,7 +18,7 @@ class ContactBookController extends GetxController {
   final tripimage = sharedPreferences.getString('image');
   final tripname = sharedPreferences.getString('name');
   final tripcountry = sharedPreferences.getString('country');
-  String pay = 'حساب بنكي';
+  String pay = 'الدفع نقدا';
   DateTime? dataTime;
   changepay(String x) {
     pay = x;
@@ -94,8 +94,10 @@ class ContactBookController extends GetxController {
       addcop(context);
       QuickAlert.show(
         context: context,
+        title: "",
         type: QuickAlertType.success,
         text: 'تم إرسال الحجز بنجاح سيتم التواصل معك قريبا ',
+        confirmBtnText: "موافق",
         onConfirmBtnTap: () {
           Get.back();
           Future.delayed(const Duration(milliseconds: 100));

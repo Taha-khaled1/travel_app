@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.travel_app_flutter">
+    package="com.nanots.traveln">
    <application
         android:label="77trips"
         android:name="${applicationName}"

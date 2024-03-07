@@ -29,7 +29,7 @@ class CustomListtile extends StatelessWidget {
       child: ListTile(
         style: ListTileStyle.list,
         onTap: onTap,
-        leading: widget,
+        // leading: widget,
         trailing: const Icon(Icons.arrow_forward_ios),
         title: Text(
           titel!,

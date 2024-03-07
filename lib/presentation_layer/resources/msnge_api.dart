@@ -1,8 +1,8 @@
 class APiMange {
-  static const String baseurl = "https://77trips.com/public/api";
-  static const String baseurlImage = "https://77trips.com/public";
-  static const String baseurl1 = "http://localhost/travel/public/api";
-  static const String baseurlImage1 = "http://localhost/travel/public";
+  static const String baseurl = "https://77trips.ae/api";
+  static const String baseurlImage = "https://77trips.ae";
+  static const String baseurl1 = "http://localhost/travel/api";
+  static const String baseurlImage1 = "http://localhost/travel";
 
   //-------------------------------------------------------------------------------------//
   static const String adventures = "$baseurl/adventures";
@@ -15,11 +15,11 @@ class APiMange {
   //-------------------------------------------------------------------------------------//
   static const String login = "$baseurl/auth/login";
   static const String propertydetalis = "$baseurl/propertydetalis";
-  static const String getfavorute = "$baseurl/wishlists"; //id
-  static const String mostview = "$baseurl/mostview"; //id
-  static const String gteCartList = "$baseurl/carts"; //id
-  static const String gteAddCartList = "$baseurl/carts/add"; //id
-  static const String gteAddressuser = "$baseurl/user/shipping/address"; //id
+  static const String getfavorute = "$baseurl/wishlists";
+  static const String mostview = "$baseurl/mostview";
+  static const String gteCartList = "$baseurl/carts";
+  static const String gteAddCartList = "$baseurl/carts/add";
+  static const String gteAddressuser = "$baseurl/user/shipping/address";
   static const String getaddress = "$baseurl/user/shipping/address";
   static const String requestShope = "$baseurl/send-seller-request";
   static const String sendcontact = "$baseurl/send-contact";

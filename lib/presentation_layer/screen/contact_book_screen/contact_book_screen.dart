@@ -93,7 +93,7 @@ class ContactBookScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 15),
                     const Text(
-                      'اميلك',
+                      'البريد الإلكتروني',
                       style:
                           TextStyle(color: ColorManager.kTextone, fontSize: 20),
                     ),
@@ -288,55 +288,37 @@ class EditpayTrip extends StatelessWidget {
                 ),
               ),
               const Expanded(child: SizedBox()),
-              TextButton(
-                onPressed: () {
-                  showModalBottomSheet<void>(
-                    context: context,
-                    builder: (BuildContext context) => SafeArea(
-                      child: SizedBox(
-                        height: 250,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            CustomListtile(
-                              // color: ColorManager.ktextblackk,
-                              widget: Image.asset('assets/icons/bank.png'),
-                              onTap: () async {
-                                controller.changepay('تحويل بنكي');
-                              },
-                              titel: 'تحويل بنكي',
-                            ),
-                            CustomListtile(
-                              widget: Image.asset('assets/icons/visa.png'),
-                              onTap: () {
-                                controller.changepay('فيزا كارد');
-                              },
-                              titel: 'فيزا كارد',
-                            ),
-                            CustomListtile(
-                              widget: const Icon(
-                                Icons.attach_money,
-                                textDirection: TextDirection.rtl,
-                              ),
-                              onTap: () {
-                                controller.changepay('تحويل رقمي');
-                              },
-                              titel: 'تحويل رقمي',
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                },
-                child: Text(
-                  'تعديل',
-                  style: MangeStyles().getBoldStyle(
-                    color: ColorManager.kTextone,
-                    fontSize: FontSize.s18,
-                  ),
-                ),
-              ),
+              // TextButton(
+              //   onPressed: () {
+              //     showModalBottomSheet<void>(
+              //       context: context,
+              //       builder: (BuildContext context) => SafeArea(
+              //         child: SizedBox(
+              //           height: 250,
+              //           child: Column(
+              //             crossAxisAlignment: CrossAxisAlignment.stretch,
+              //             children: <Widget>[
+              //               CustomListtile(
+              //                 widget: Image.asset('assets/icons/visa.png'),
+              //                 onTap: () {
+              //                   controller.changepay('الدفع نقدا');
+              //                 },
+              //                 titel: 'الدفع نقدا',
+              //               ),
+              //             ],
+              //           ),
+              //         ),
+              //       ),
+              //     );
+              //   },
+              //   child: Text(
+              //     '',
+              //     style: MangeStyles().getBoldStyle(
+              //       color: ColorManager.kTextone,
+              //       fontSize: FontSize.s18,
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         );
